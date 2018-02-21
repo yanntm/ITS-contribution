@@ -8,6 +8,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.lip6.move.gal.nupn.NotAPTException;
+import fr.lip6.move.gal.nupn.PTNetReader;
+
 import dk.aau.cs.approximation.ApproximationWorker;
 import dk.aau.cs.gui.components.BatchProcessingResultsTableModel;
 import dk.aau.cs.model.tapn.simulation.TimedArcPetriNetTrace;
