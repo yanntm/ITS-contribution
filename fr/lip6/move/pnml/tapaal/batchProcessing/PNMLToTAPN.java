@@ -1,11 +1,10 @@
- package fr.lip6.move.gal.contribution.orders;
+ package fr.lip6.move.pnml.tapaal.batchProcessing;
 
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-
 
 import fr.lip6.move.pnml.ptnet.Arc;
 import fr.lip6.move.pnml.ptnet.Page;

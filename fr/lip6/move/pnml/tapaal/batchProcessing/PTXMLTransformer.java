@@ -1,25 +1,16 @@
-package fr.lip6.move.gal.contribution.orders;
+package fr.lip6.move.pnml.tapaal.batchProcessing;
 
 
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Logger;
-
-import com.sun.org.apache.xpath.internal.operations.Variable;
-
-import fr.lip6.move.pnml.ptnet.PTMarking;
 import fr.lip6.move.pnml.ptnet.Page;
 import fr.lip6.move.pnml.ptnet.Arc;
 import fr.lip6.move.pnml.ptnet.PetriNet;
 import fr.lip6.move.pnml.ptnet.Place;
 import fr.lip6.move.pnml.ptnet.PnObject;
 import fr.lip6.move.pnml.ptnet.Transition;
-import org.eclipse.emf.ecore.resource.*;
 
 
 public class PTXMLTransformer {
@@ -28,11 +19,6 @@ public class PTXMLTransformer {
 		
 	}
 
-	private static Logger getLog() {
-		return Logger.getLogger("fr.lip6.move.gal");
-	}
-
-	private boolean reversible=false;
 	
 	public void transform(PetriNet petriNet, String path) {
 		PrintWriter pw;
@@ -58,7 +44,7 @@ public class PTXMLTransformer {
 
 
 	private void handlePage(Page page, PrintWriter pw) {
-		Map<Place, Variable> placeMap = new HashMap<Place, Variable>();
+		
 		
 		
 		for (PnObject n : page.getObjects()) {
@@ -72,7 +58,7 @@ public class PTXMLTransformer {
 			}
 		}
 
-		getLog().info("Transformed "+ placeMap.size() + " places.");
+		
 		for (PnObject pnobj : page.getObjects()) {
 			if (pnobj instanceof Transition) {
 				Transition t = (Transition) pnobj;
@@ -94,7 +80,6 @@ public class PTXMLTransformer {
 //				
 				
 				for (Arc arc : t.getInArcs()) {
-					Place pl = (Place) arc.getSource();
 					String tmp_str = "<arc id=\""+arc.getId()+"\" inscription=\""+arc.getInscription().toString()+"\" source=\""+arc.getSource().toString()+"\" target=\""+arc.getTarget().toString()+"\" "
 							+ "type=\"normal\" weight=\"1\">"+
       	"<arcpath arcPointType=\"false\" id=\"0\" xCoord=\"106\" yCoord=\"117\"/>"+
@@ -109,15 +94,5 @@ public class PTXMLTransformer {
 
 	}
 
-	private int interpretMarking(PTMarking ptMarking) {
-		if (ptMarking == null || ptMarking.getText() == null) {
-			return 0;
-		}
-		return Math.toIntExact(ptMarking.getText());
-	}
-
-	public void setReversible(boolean reversible) {
-		this.reversible = reversible;
-	}
 
 }
