@@ -60,8 +60,8 @@ public class MyVerrifier {
 				numberofextratoken,searchOption,symmetryOption,reductionOptionList,isDiscreteInclusion,useTimeDartPetri,useTimeDart,usePetri,
 				approxOption,approximationDenominator);
 		
-		 new BatchProcessingWorker(files, tableModel,les_options);
-		 
+		 BatchProcessingWorker worker = new BatchProcessingWorker(files, tableModel,les_options);
+		 worker.process();
 		 // voir methode process !!
 	}
 	
