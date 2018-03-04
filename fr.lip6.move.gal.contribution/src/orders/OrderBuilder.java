@@ -1,4 +1,4 @@
-package fr.lip6.move.gal.contribution.orders;
+package orders;
 
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;

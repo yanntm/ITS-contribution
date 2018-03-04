@@ -1,13 +1,13 @@
-package fr.lip6.move.gal.contribution.ui;
+package fr.lip6.pnml.tapaal.contribution.ui;
 
 import java.io.IOException;
 import java.util.List;
 
 import fr.lip6.move.gal.Specification;
-import fr.lip6.move.gal.contribution.orders.OrderBuilder;
-import fr.lip6.move.gal.contribution.orders.PTGALTransformer;
-import fr.lip6.move.gal.contribution.ui.handlers.OrderHandler;
+import orders.OrderBuilder;
+import orders.PTGALTransformer;
 import fr.lip6.move.pnml.ptnet.PetriNet;
+import fr.lip6.pnml.tapaal.contribution.ui.handlers.OrderHandler;
 
 public class AllVariables extends OrderHandler {
 
