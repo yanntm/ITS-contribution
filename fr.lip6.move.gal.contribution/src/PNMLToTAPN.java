@@ -23,9 +23,11 @@ public class PNMLToTAPN {
 	public ArrayList<Arc> input_arcs;
 	public ArrayList<Arc> output_arcs;
 	public PrintWriter pw;
+	public List<String> orders;
 	
 	
-	public PNMLToTAPN(String path,String newpath){
+	public PNMLToTAPN(String path,String newpath, List<String> orders){
+	    this.orders=orders;
 		File file = new File(path);
 		File file_tmp = new File(newpath);
 		try {
@@ -115,7 +117,7 @@ public class PNMLToTAPN {
 		}
 	}
 	
-	public void handleOrder(ArrayList<Place> places, List<String> orders) {
+	public void handleOrder(ArrayList<Place> places) {
 	    while(!orders.isEmpty()) {
     	    for(Place place : places) {
     	        if(orders.get(0).equals(place.getName())) {
