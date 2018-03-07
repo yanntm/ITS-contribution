@@ -14,6 +14,7 @@ import java.util.List;
 import fr.lip6.move.gal.nupn.NotAPTException;
 import fr.lip6.move.gal.nupn.PTNetReader;
 import fr.lip6.move.pnml.ptnet.Arc;
+import fr.lip6.move.pnml.ptnet.PTMarking;
 import fr.lip6.move.pnml.ptnet.Page;
 import fr.lip6.move.pnml.ptnet.PetriNet;
 import fr.lip6.move.pnml.ptnet.Place;
@@ -135,7 +136,7 @@ public class PNMLToTAPN {
                 pw.print("id=\"" + net_name+"_"+p.getId() + "\" ");
                 pw.print("name=\"" + net_name+"_"+p.getId() + "\" ");
                 pw.print("invariant=\"&lt; inf\" ");
-                pw.print("initialMarking=\""+p.getInitialMarking().getText()+"\"");
+                pw.print("initialMarking=\""+interpretMarking(p.getInitialMarking())+"\"");
                 pw.println(" />");
             }
         }else {                                                                                    // Else ...!
@@ -155,6 +156,11 @@ public class PNMLToTAPN {
         }
     }
 
-
+	private int interpretMarking(PTMarking ptMarking) {
+		if (ptMarking == null || ptMarking.getText() == null) {
+			return 0;
+		}
+		return Math.toIntExact(ptMarking.getText());
+	}
 
 }
