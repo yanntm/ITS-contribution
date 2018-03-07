@@ -42,7 +42,7 @@ public class VerifyWithProcess {
             file_tmp = File.createTempFile(real_name.replace(".pnml",""), ".xml");
             file_model = file_tmp.getAbsolutePath();
 
-            // file_model = "/home/justin/Documents/testeststetes.xml";
+            // file_model = "/home/justin/Documents/test_test_test.xml";
             // File test = new File(file_model);
             // test.createNewFile();
 
@@ -76,7 +76,7 @@ public class VerifyWithProcess {
             } else {
                 String errorOutput = readOutput(runner.errorOutput());
                 String standardOutput = readOutput(runner.standardOutput()).replace(",",",\n");
-                //                standardOutput=standardOutput.replace(">", ">\n"); //comment to reduce console print length
+//                standardOutput=standardOutput.replace(">", ">\n"); // comment this line (ctrl+Maj+/) to reduce console print length
                 System.out.println("Peak Memory : "+MemoryMonitor.getPeakMemory());
                 System.out.println("the verification ran for : "+runner.getRunningTime()+"ms");
                 System.out.println(standardOutput);

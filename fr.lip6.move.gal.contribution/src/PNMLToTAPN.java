@@ -90,32 +90,31 @@ public class PNMLToTAPN {
     
     // PageHandler based on Lip6 GAL's contribution adapted to use orders and for TAPAAL engine
     public void handlePage(Page page, PrintWriter pw){
-        boolean places=false;
-        ArrayList<Place> places_array = new ArrayList<>();
-        ArrayList<Transition> transitions = new ArrayList<>();
-        for (PnObject n : page.getObjects()) {
-            if (n instanceof Place) {
-                Place p = (Place) n;
+        ArrayList<Place> places_array = new ArrayList<>();                                      // new list of places
+        ArrayList<Transition> transitions = new ArrayList<>();                                  // new list of transition
+        for (PnObject n : page.getObjects()) {                                                  // for every object in the net's pages
+            if (n instanceof Place) {                                                           // we deal with each different classes :
+                Place p = (Place) n;                                                            // adding place to an array to be dealt with later
                 places_array.add(p);
 
             }
-            if (n instanceof Transition) {
+            if (n instanceof Transition) {                                                      // adding transition to an array to be dealt with later
                 Transition t = (Transition) n;
                 transitions.add(t);
 
-                for(Arc a : ((Transition) n).getInArcs()){
+                for(Arc a : ((Transition) n).getInArcs()){                                      // filling up the input arcs array
                     input_arcs.add(a);
                 }
-                for(Arc b : ((Transition) n).getOutArcs()){
+                for(Arc b : ((Transition) n).getOutArcs()){                                     // filling up the output arcs array
                     output_arcs.add(b);
                 }
 
             }
         }
 
-        handleOrder(places_array);
+        handleOrder(places_array);                                                              // handling the place's writing with orders
 
-        if(!transitions.isEmpty()) {
+        if(!transitions.isEmpty()) {                                                            // handling the transition's writing
             for(Transition t: transitions) {
                 pw.print("<transition ");
                 pw.print("id=\"" + net_name+"_"+t.getId() + "\" ");
