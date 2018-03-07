@@ -20,6 +20,8 @@
 	<modules>
 		<!-- Logic + functionality plugin -->
 		<module>../fr.lip6.pnml.tapaal.runner</module>
+		<!-- application plugin -->
+		<module>../fr.lip6.pnml.tapaal.application</module>
 		<!-- ui plugin : a button to invoke the behavior -->
 		<module>../fr.lip6.pnml.tapaal.ui</module>
 		<!-- feature plugin : to package the functionality-->
