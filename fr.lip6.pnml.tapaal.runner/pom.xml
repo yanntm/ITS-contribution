@@ -9,7 +9,7 @@
 	  <relativePath>../fr.lip6.pnml.tapaal.parent/pom.xml</relativePath>
   </parent>
   
-    <artifactId>fr.lip6.pnml.tapaal</artifactId>
+    <artifactId>fr.lip6.pnml.tapaal.runner</artifactId>
     <packaging>eclipse-plugin</packaging>
     <name>A default plugin contributing to ITS-tools.</name>
     <description>Defines a treatment over a GAL Specification.</description>

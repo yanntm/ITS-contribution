@@ -19,7 +19,7 @@
 
 	<modules>
 		<!-- Logic + functionality plugin -->
-		<module>../fr.lip6.pnml.tapaal</module>
+		<module>../fr.lip6.pnml.tapaal.runner</module>
 		<!-- ui plugin : a button to invoke the behavior -->
 		<module>../fr.lip6.pnml.tapaal.ui</module>
 		<!-- feature plugin : to package the functionality-->
