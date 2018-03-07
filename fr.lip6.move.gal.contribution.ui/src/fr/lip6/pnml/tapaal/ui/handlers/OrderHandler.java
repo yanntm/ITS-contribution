@@ -1,4 +1,4 @@
-package fr.lip6.pnml.tapaal.contribution.ui.handlers;
+package fr.lip6.pnml.tapaal.ui.handlers;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;

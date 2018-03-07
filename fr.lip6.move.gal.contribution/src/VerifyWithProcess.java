@@ -6,8 +6,8 @@ import java.util.Random;
 
 import javax.swing.JFileChooser;
 
-import dk.aau.cs.util.MemoryMonitor;
-import dk.aau.cs.verification.ProcessRunner;
+//import dk.aau.cs.util.MemoryMonitor;
+//import dk.aau.cs.verification.ProcessRunner;
 
 public class VerifyWithProcess {
 
@@ -73,7 +73,7 @@ public class VerifyWithProcess {
                 String errorOutput = readOutput(runner.errorOutput());
                 String standardOutput = readOutput(runner.standardOutput()).replace(",",",\n");
 //                standardOutput=standardOutput.replace(">", ">\n"); // comment this line (ctrl+Maj+/) to reduce console print length
-                System.out.println("Peak Memory : "+MemoryMonitor.getPeakMemory());
+              //  System.out.println("Peak Memory : "+MemoryMonitor.getPeakMemory());
                 System.out.println("the verification ran for : "+runner.getRunningTime()+"ms");
                 System.out.println(standardOutput);
             }

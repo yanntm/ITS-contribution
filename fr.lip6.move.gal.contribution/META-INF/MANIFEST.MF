@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Contribution
-Bundle-SymbolicName: fr.lip6.pnml.tapaal.contribution;singleton:=true
+Bundle-SymbolicName: fr.lip6.pnml.tapaal;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: LIP6
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
