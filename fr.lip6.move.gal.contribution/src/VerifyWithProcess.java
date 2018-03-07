@@ -28,19 +28,15 @@ public class VerifyWithProcess {
         String file_origin=dialogue.getSelectedFile().getAbsolutePath();
 
         // Creating the file names we need 
-        String home_tmp = "/home/tmp";             // tmp for the converted net for tapaal
         String[] tmp = file_origin.split("/");      //
         String real_name = tmp[tmp.length-1];       // we get the name of the file only
-        Random rn = new Random();                   //
-        int rand_name= rn.nextInt();                // we had a little bit of randomization
         String path_pnml = file_origin;
-        String file_model = home_tmp + real_name.replace(".pnml","")+"-"+rand_name+".xml"; //
         File file_tmp = null;
         try {// Creating a temporary file for the verifypn64 program
             /// temporary file is a .xml version of the .pnml chosen, for tapaal engine 
 
             file_tmp = File.createTempFile(real_name.replace(".pnml",""), ".xml");
-            file_model = file_tmp.getAbsolutePath();
+            String file_model = file_tmp.getAbsolutePath();
 
             // file_model = "/home/justin/Documents/test_test_test.xml";
             // File test = new File(file_model);
