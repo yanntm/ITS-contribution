@@ -1,10 +1,13 @@
+package fr.pnml.tapaal.runner;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.Random;
 
 import javax.swing.JFileChooser;
+
+import dk.ProcessRunner;
 
 //import dk.aau.cs.util.MemoryMonitor;
 //import dk.aau.cs.verification.ProcessRunner;
@@ -26,11 +29,18 @@ public class VerifyWithProcess {
         JFileChooser dialogue = new JFileChooser();
         dialogue.showOpenDialog(null);
         String file_origin=dialogue.getSelectedFile().getAbsolutePath();
+        String verifypath  = "/home/justin/tapaal-3.4.0-linux64/bin/verifypn64";
+        String file_query = "/home/justin/Documents/verify_query_deadlock.xml";
+        
+        doVerify(file_origin, verifypath, file_query);
+    }
 
-        // Creating the file names we need 
+	public void doVerify(String file_origin, String verifypath, String file_query) {
+		// Creating the file names we need 
         String[] tmp = file_origin.split("/");      //
         String real_name = tmp[tmp.length-1];       // we get the name of the file only
         String path_pnml = file_origin;
+        
         File file_tmp = null;
         try {// Creating a temporary file for the verifypn64 program
             /// temporary file is a .xml version of the .pnml chosen, for tapaal engine 
@@ -47,8 +57,7 @@ public class VerifyWithProcess {
             exporter.toTAPN();
 
 
-            // defining query file path and options
-            String file_query = "/home/justin/Documents/verify_query_deadlock.xml";
+            // defining query file path and options            
             String options = "-k 0 -s BestFS -r 0 -q 0 -ctl czero -x 1";
 
 
@@ -56,7 +65,7 @@ public class VerifyWithProcess {
 
             //TODO find and define the path to the verifypn64 engine
             // defining engine path and arguments
-            String verifypath  = "/home/justin/tapaal-3.4.0-linux64/bin/verifypn64";
+            
             String arguments = options+" "+file_model+" "+file_query;
 
 
@@ -84,7 +93,7 @@ public class VerifyWithProcess {
                 file_tmp.delete();
             }
         }
-    }
+	}
 
 
     // TAPAAL team's code

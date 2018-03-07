@@ -1,3 +1,4 @@
+package fr.pnml.tapaal.runner;
 
 public class VerifyMain {
 
