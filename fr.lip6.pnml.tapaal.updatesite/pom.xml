@@ -9,7 +9,7 @@
 	  <relativePath>../fr.lip6.pnml.tapaal.parent/pom.xml</relativePath>
   </parent>
 
-    <artifactId>fr.lip6.pnml.tapaal</artifactId>
+    <artifactId>fr.lip6.pnml.tapaal.updatesite</artifactId>
     <packaging>eclipse-repository</packaging>
     <name>ITS tools contribution</name>
     <description>Update Site for ITS-tools contribution.</description>
