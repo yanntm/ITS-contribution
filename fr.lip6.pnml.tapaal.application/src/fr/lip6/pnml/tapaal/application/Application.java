@@ -1,4 +1,4 @@
-package fr.lip6.move.gal.itscl.application;
+package fr.lip6.pnml.tapaal.application;
 
 import java.io.File;
 import java.io.PrintWriter;

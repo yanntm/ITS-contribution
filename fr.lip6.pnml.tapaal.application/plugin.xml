@@ -3,12 +3,12 @@
 <plugin>
 
    <extension
-         id="fr.lip6.move.gal.itscl.application"
-         name="ITS-tools command line application."
+         id="fr.lip6.pnml.tapaal.application"
+         name="Tapaal (in ITS tools) command line application."
          point="org.eclipse.core.runtime.applications">
       <application>
          <run
-               class="fr.lip6.move.gal.itscl.application.Application">
+               class="fr.lip6.pnml.tapaal.application.Application">
          </run>
       </application>
    </extension>
@@ -17,9 +17,9 @@
          name="fr.lip6.move.gal.itscl.product"
          point="org.eclipse.core.runtime.products">
       <product
-            application="fr.lip6.move.gal.itscl.application"
-            description="ITS-tools command line."
-            name="ITS-tools command line">
+            application="fr.lip6.pnml.tapaal.application"
+            description="Tapaal command line."
+            name="Tapaal command line">
       </product>
    </extension>
 
