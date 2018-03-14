@@ -10,15 +10,11 @@ import javax.swing.JFileChooser;
 import fr.lip6.move.gal.process.CommandLine;
 import fr.lip6.move.gal.process.Runner;
 
-//import dk.aau.cs.util.MemoryMonitor;
-//import dk.aau.cs.verification.ProcessRunner;
-
 public class VerifyWithProcess {
 
 
     public List<String> orders;
 
-    //TODO add a name to the heuristic
     // Constructor assigning a list of orders, calculated with a specified heuristic 
     public VerifyWithProcess(List<String> orders) {
         this.orders = orders;
@@ -30,6 +26,8 @@ public class VerifyWithProcess {
         JFileChooser dialogue = new JFileChooser();
         dialogue.showOpenDialog(null);
         String file_origin=dialogue.getSelectedFile().getAbsolutePath();
+        String test_verifypath  = chercherVerifyPN(new File("/home"));
+        System.out.println(test_verifypath);
         String verifypath  = "/home/justin/tapaal-3.4.0-linux64/bin/verifypn64";
         String file_query = "/home/justin/Documents/verify_query_deadlock.xml";
 
@@ -75,19 +73,21 @@ public class VerifyWithProcess {
             for(String str : commands) {
                 cl.addArg(str);
             }
-            File tempo_file =new File("/home/justin/test");
+            File tempo_file = new File("/home/justin/test");
 
             long timeout = 300000;
+            
             boolean errToOut = false;
+            
             System.out.println("Launching runner ...");
             
-            runner.runTool(timeout, cl,tempo_file,errToOut);
+            runner.runTool(timeout, cl, tempo_file, errToOut);
             
             // displaying the memory consumption of the runtime environment
             System.gc();
             Runtime rt = Runtime.getRuntime();
             long usedMB = (rt.totalMemory() - rt.freeMemory()) / 1024 / 1024;
-            String str_tmp ="Memory usage : " +usedMB+"Mb";
+            String str_tmp ="Memory usage : "+usedMB+"Mb";
             System.out.println(str_tmp);            
 
 
@@ -98,5 +98,23 @@ public class VerifyWithProcess {
                 file_tmp.delete();
             }
         }
+    }
+    
+    private String chercherVerifyPN(File f) {
+//        File f = new File("/");
+        String test = "";
+        String recherche = "verifypn64";
+        if(f.getName().equals(recherche)) {
+            return f.getAbsolutePath();
+        }else {
+            File[] liste_f  = f.listFiles();
+            if(null!=liste_f) {
+                for(File t :liste_f) {
+                    test = chercherVerifyPN(t);
+                    
+                }
+            }
+        }
+        return test;
     }
 }
