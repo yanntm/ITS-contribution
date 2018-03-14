@@ -72,7 +72,20 @@ public class Application implements IApplication {
 		PrintWriter pw = new PrintWriter(queryFile);
 		
 		if ("ReachabilityDeadlock".equals(exam)) {
-			pw.print("<query> </query>");
+			pw.print("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n" + 
+			        "<property-set xmlns=\"http://tapaal.net/\">\n" + 
+			        "<property>\n" + 
+			        "    <id>DeadlockTesting</id>\n" + 
+			        "    <description>testing the existance of a deadlock in the model</description>\n" + 
+			        "    <formula>\n" + 
+			        "      <exists-path>\n" + 
+			        "        <finally>\n" + 
+			        "          <deadlock/>\n" + 
+			        "        </finally>\n" + 
+			        "      </exists-path>\n" + 
+			        "    </formula>\n" + 
+			        "  </property>\n" + 
+			        "</property-set>");
 		}
 		
 		VerifyWithProcess vwp = new VerifyWithProcess(null);
