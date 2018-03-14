@@ -174,7 +174,7 @@ public class PNMLToTAPN {
             pw_tmp.println("    <id></id>");
             pw_tmp.println("    <description></description>");
             pw_tmp.println("    <formula>");
-            queryFormulaParser(pw_tmp);
+            queryFormulaPrinter(pw_tmp);
             pw_tmp.println("    </formula>");
             pw_tmp.println("</property>");
             pw_tmp.print("</property-set>");
@@ -185,7 +185,7 @@ public class PNMLToTAPN {
         }
 	}
 	
-	public void queryFormulaParser(PrintWriter pw_tmp) {
+	public void queryFormulaPrinter(PrintWriter pw_tmp) {
 	    
 	}
 }
