@@ -10,7 +10,7 @@ import fr.pnml.tapaal.runner.VerifyWithProcess;
 
 public class Application implements IApplication {
 	private static final String APPARGS = "application.args";
-	private static final String INPUT_FILE = "-i";
+	private static final String INPUT_FILE = "-i"; 
 	private static final String TAPAAL_PATH = "-tapaalpath";
 	private static final String ORDER_PATH = "-order";
 	private static final String EXAMINATION = "-examination";
@@ -72,7 +72,7 @@ public class Application implements IApplication {
 		PrintWriter pw = new PrintWriter(queryFile);
 		
 		if ("ReachabilityDeadlock".equals(exam)) {
-			pw.print("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n" + 
+			pw.println("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n" + 
 			        "<property-set xmlns=\"http://tapaal.net/\">\n" + 
 			        "<property>\n" + 
 			        "    <id>DeadlockTesting</id>\n" + 
@@ -86,7 +86,10 @@ public class Application implements IApplication {
 			        "    </formula>\n" + 
 			        "  </property>\n" + 
 			        "</property-set>");
+			pw.flush();
+			pw.close();
 		}
+		
 		
 		VerifyWithProcess vwp = new VerifyWithProcess(null);
 		vwp.doVerify(inputff, tapaalff, queryFile.getCanonicalPath());
