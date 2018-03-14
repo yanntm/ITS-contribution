@@ -47,15 +47,12 @@ public class VerifyWithProcess {
             file_tmp = File.createTempFile(real_name.replace(".pnml",""), ".xml");
             String file_model = file_tmp.getAbsolutePath();
 
-
             // Exporting the file path_pnml to file_model using our Parser/Writer PNMLToTAPN for tapaal
             PNMLToTAPN exporter = new PNMLToTAPN(path_pnml,file_model,null);
             exporter.toTAPN();
 
-
             // defining query file path and options            
-            String options = "-k 0 -s BestFS -r 0 -q 0 -ctl czero -x 1";
-
+            String options = "-k 0 -s BestFS -r 1 -q 0 -ctl czero -x 1";
 
             //TODO find and define the path to the verifypn64 engine
             // defining engine path and arguments
@@ -111,7 +108,6 @@ public class VerifyWithProcess {
             if(null!=liste_f) {
                 for(File t :liste_f) {
                     test = chercherVerifyPN(t);
-                    
                 }
             }
         }
